@@ -1,5 +1,6 @@
 Hello GITHUB
 Change from my dev enviroment
 
-Change on Github
-causing error from dev enviro
+lets cause an error by commiting a dev enviro change without replacing the github change muhahahhahahahahahahh
+fixed it
+
