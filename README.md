@@ -12,7 +12,7 @@ Secure login over HTTPS
 
 easy to read date ordered graph of assignments and due dates (inserted by user)
 
-email and/or text reminders
+email and/or text reminders of items coming up on the graph
 
 friends
 
