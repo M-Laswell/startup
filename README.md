@@ -2,11 +2,13 @@ You know in college that annoying feeling of not being sure if you forgot an ass
 
 key features 
 
-easy to read graph date ordered of assignments and due dates
+Secure login over HTTPS
+
+easy to read date ordered graph of assignments and due dates (inserted by user)
 
 email and/or text reminders
 
-personal accounts
+friends
 
 due date/assignment sharing between people
 
