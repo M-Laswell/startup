@@ -1,10 +1,1 @@
-Hello GITHUB
-Change from my dev enviroment
-
-lets cause an error by commiting a dev enviro change without replacing the github change muhahahhahahahahahahh
-fixed it
-
-honestly easier to fix merge errors than i thought it might be lets go 
-I remember working with github before and thought it was a lot more complicated back then but its actually pretty easy and is very convenient for keeping everything in one place and easily accesible no matter where you are working from
-
-getting everything put together and updated on github seems easier than i thought
+You know in college that annoying feeling of not being sure if you forgot an assignment or not? Or the pit of sadness you felt in your stomach when you forgot to turn something in? With the assignment tracker we are trying to turn that into a thing of the past with a nice spreadsheet view of which assignments you need to get done ordered by date. Between the email and text reminder options all types of users can be catered too and its not just for students either anyone with deadlines they have to constantly deal with can use it just as easily! it's like having your own personal assitant there to remind you of what you need to do in the day.
