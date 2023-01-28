@@ -3,6 +3,9 @@ You know in college that annoying feeling of not being sure if you forgot an ass
 key features 
 
 easy to read graph date ordered of assignments and due dates
+
 email and/or text reminders
+
 personal accounts
+
 due date/assignment sharing between people
