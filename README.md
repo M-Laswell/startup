@@ -17,3 +17,6 @@ email and/or text reminders of items coming up on the graph
 friends
 
 due date/assignment sharing between people
+
+ssh -i C:/Users/mlaswell/.ssh/Production.pem ubuntu@13.58.21.220
+exit
