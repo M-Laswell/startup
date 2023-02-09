@@ -22,3 +22,13 @@ ssh -i C:/Users/mlaswell/.ssh/Production.pem ubuntu@13.58.21.220
 exit
 
 http://assignmenttracker.click/
+
+for pushing to site(simon)
+
+connect first
+then
+rm -rf(remove write protected files without confirmation) services/simon/public
+mkdir -p services/simon/public (remake the directory)
+then 
+scp -r -i "C:/Users/mlaswell/.ssh/Production.pem" C:/Users/mlaswell/source/repos/simon/*(asterix is so it moves whatever files are in the folder not the whole folder) ubuntu@assignmenttracker.click:services/simon/public
+
