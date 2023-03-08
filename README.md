@@ -32,3 +32,16 @@ mkdir -p services/simon/public (remake the directory)
 then 
 scp -r -i "C:/Users/mlaswell/.ssh/Production.pem" C:/Users/mlaswell/source/repos/simon/*(asterix is so it moves whatever files are in the folder not the whole folder) ubuntu@assignmenttracker.click:services/simon/public
 
+IN ALL THE CSS HEADERS
+<link rel="stylesheet" href="main.css" />
+
+    <!-- Include bootstrap CSS framework -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+Gotta div most stuff up for css to work correctly spacing and overlap wise
+in the body class the text element honestly doesnt seem to do anything and its all from the css code
+
