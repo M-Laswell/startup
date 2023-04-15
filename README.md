@@ -32,6 +32,8 @@ mkdir -p services/simon/public (remake the directory)
 then 
 scp -r -i "C:/Users/mlaswell/.ssh/Production.pem" C:/Users/mlaswell/source/repos/simon/*(asterix is so it moves whatever files are in the folder not the whole folder) ubuntu@assignmenttracker.click:services/simon/public
 
+simon css 
+
 IN ALL THE CSS HEADERS
 <link rel="stylesheet" href="main.css" />
 
@@ -44,4 +46,5 @@ IN ALL THE CSS HEADERS
     />
 Gotta div most stuff up for css to work correctly spacing and overlap wise
 in the body class the text element honestly doesnt seem to do anything and its all from the css code
-
+html elements denoted with a period followed by the details for the item 
+display flex so that it changes based on device
