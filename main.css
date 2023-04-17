@@ -30,12 +30,13 @@ menu {
 
 .navbar-brand {
   padding-left: 0.3em;
-  border-bottom: solid rgb(182, 182, 182) thin;
+  border-bottom: solid #7397d9 thin;
 }
 
 menu .nav-item {
   padding: 0 0.3em;
 }
+
 
 footer a {
   float: right;
@@ -49,10 +50,12 @@ footer a {
   flex: 1;
   width: 100%;
   padding: 0.5em;
+
+  color: #eba0eb;
 }
 
 .player-name {
-  color: rgb(118, 190, 210);
+  color: #eba0eb;
 }
 
 .game {

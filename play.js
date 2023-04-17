@@ -8,7 +8,7 @@ var DIRECTION = {
 };
 
 var rounds = [5, 5, 3, 3, 2];
-var colors = ['#1abc9c', '#2ecc71', '#3498db', '#e74c3c', '#9b59b6'];
+var colors = ['#1abc9c', '#2ecc71', '#3498db', '#e74c3c', '#3b444b'];
 
 // The ball object (The cube that bounces back and forth)
 var Ball = {
@@ -31,6 +31,7 @@ var Paddle = {
 		return {
 			width: 18,
 			height: 70,
+			color: (96, 50, 168),
 			x: side === 'left' ? 150 : this.canvas.width - 150,
 			y: (this.canvas.height / 2) - 35,
 			score: 0,
@@ -45,8 +46,8 @@ var Game = {
 		this.canvas = document.querySelector('canvas');
 		this.context = this.canvas.getContext('2d');
 
-		this.canvas.width = 1400;
-		this.canvas.height = 1000;
+		this.canvas.width = 2400;
+		this.canvas.height = 1500;
 
 		this.canvas.style.width = (this.canvas.width / 2) + 'px';
 		this.canvas.style.height = (this.canvas.height / 2) + 'px';
@@ -59,7 +60,7 @@ var Game = {
 		this.running = this.over = false;
 		this.turn = this.paddle;
 		this.timer = this.round = 0;
-		this.color = '#2c3e50';
+		this.color = '#7397d9';
 
 		Pong.menu();
 		Pong.listen();
@@ -242,7 +243,8 @@ var Game = {
 			this.player.x,
 			this.player.y,
 			this.player.width,
-			this.player.height
+			this.player.height,
+			this.player.color = '#51225a'
 		);
 
 		// Draw the Paddle
@@ -251,6 +253,7 @@ var Game = {
 			this.paddle.y,
 			this.paddle.width,
 			this.paddle.height
+
 		);
 
 		// Draw the Ball
