@@ -244,25 +244,6 @@ var Game = {
 		}
 
 		// Handle the end of round transition
-		// Check to see if the player won the round.
-		 //(this.player.score === rounds[this.round]) {
-			// Check to see if there are any more rounds/levels left and display the victory screen if
-			// there are not.
-			//if (!rounds[this.round + 1]) {
-				//this.over = true;
-				//setTimeout(function () { Pong.endGameMenu('Winner!'); }, 1000);
-			//} else {
-				 //If there is another round, reset all the values and increment the round number.
-				//this.color = this._generateRoundColor();
-				//this.player.score = this.paddle.score = 0;
-				//this.player.speed += 0.5;
-				//this.paddle.speed += 1;
-				//this.ball.speed += 1;
-				//this.round += 1;
-
-				//beep3.play();
-			//}
-		//}
 		// Check to see if the paddle/AI has won the round.
 		if (this.paddle.score === this.player.score + 2) {
 			this.over = true;
@@ -380,22 +361,29 @@ var Game = {
 	},
 
 	listen: function () {
-		document.addEventListener('keydown', function (key) {
+		document.addEventListener('mousemove', function(event) {
+			// Get the vertical position of the cursor
+			var mouseY = event.clientY;
+	
+			// Get the vertical position of the player paddle
+			var paddleY = Pong.player.y + (Pong.player.height / 2);
+	
+			// Move the player paddle up or down depending on the position of the cursor
+			
+			if (mouseY < paddleY - 10) {
+				Pong.player.move = DIRECTION.UP;
+			} else if (mouseY > paddleY + 10) {
+				Pong.player.move = DIRECTION.DOWN;
+			} else {
+				Pong.player.move = DIRECTION.IDLE;
+			} 
+	
 			// Handle the 'Press any key to begin' function and start the game.
 			if (Pong.running === false) {
 				Pong.running = true;
 				window.requestAnimationFrame(Pong.loop);
 			}
-
-			// Handle up arrow and w key events
-			if (key.keyCode === 38 || key.keyCode === 87) Pong.player.move = DIRECTION.UP;
-
-			// Handle down arrow and s key events
-			if (key.keyCode === 40 || key.keyCode === 83) Pong.player.move = DIRECTION.DOWN;
 		});
-
-		// Stop the player from moving when there are no keys being pressed.
-		document.addEventListener('keyup', function (key) { Pong.player.move = DIRECTION.IDLE; });
 	},
 
 	// Reset the ball location, the player turns and set a delay before the next round begins.
