@@ -50,8 +50,33 @@ html elements denoted with a period followed by the details for the item
 display flex so that it changes based on device
 
 startup httml/css/javascript
+
+
 changed all the colors up  you can change the colors on specfic sections by using style="background-color:#344461;" or style="color:#344461;" depending on if its for text or the background for html or css its color: #3444461
 can change links specifically by adding a style section in the head with a:(link,visited,etc) { color: #344461}
-changed from an assignmeent tracker to a pong game since i couldnt find a good way too include all the elements in my previous idea ound a simple js pong gamee @ https://codepen.io/gdube/pen/JybxxZ and am modifying it for my use modifications include muteing noises, changing controls(wip), colors, number of matchs, etc.
-
-
+changed from an assignmeent tracker to a pong game since i couldnt find a good way too include all the elements in my previous idea ound a simple js pong gamee @ https://codepen.io/gdube/pen/JybxxZ and am modifying it for my use modifications include muteing noises, changing controls, colors, number of matchs, etc.
+changed so match will continue until ai beats player by two points added controls for mobile and cursor. highscores now populates based off local data and login collects users name and displays it on the plays screen updates to about section with finicky stuff about game and how it works
+good to keep in mind 
+can lable things in html that can then be referenced in the javs script to make use of DOM example
+html
+<thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="scores"></tbody>
+js
+const scoresText = localStorage.getItem('scores');
+ if (scoresText) {
+      scores = JSON.parse(scoresText);
+    }
+  
+    const tableBodyEl = document.querySelector('#scores');
+event listeners include touch keyboard and mouse movement when string functions together important to make sure one function isnt taking so long it doesnt reach the ones after it in time
+for mobile use its better to keep everything fluid and based off screen size rather than using set amounts of pixels
+can save items in browser local storage and pull them with their ids
+localStorage.setItem('scores', JSON.stringify(scores));
+localStorage.getItem('scores');
