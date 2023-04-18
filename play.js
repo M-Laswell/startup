@@ -363,7 +363,30 @@ var Game = {
 	},
 
 	listen: function () {
-	
+	var player = this.player;
+    var canvas = this.canvas;
+
+    canvas.addEventListener('touchmove', function(event) {
+        var touch = event.touches[0];
+        var mouseY = touch.clientY - canvas.offsetTop;
+
+        var paddleY = player.y + (player.height / 2);
+
+        if (mouseY < paddleY - 10) {
+            player.move = DIRECTION.UP;
+        } else if (mouseY > paddleY + 10) {
+            player.move = DIRECTION.DOWN;
+        } else {
+            player.move = DIRECTION.IDLE;
+        }
+
+        if (Pong.running === false) {
+            Pong.running = true;
+            window.requestAnimationFrame(Pong.loop);
+        }
+
+        event.preventDefault();
+    }, false);
 
 		document.addEventListener('keydown', function (key) {
 			// Handle the 'Press any key to begin' function and start the game.
