@@ -7,6 +7,7 @@ var DIRECTION = {
 	RIGHT: 4
 };
 
+
 var rounds = [5, 5, 3, 3, 2];
 var colors = ['#1abc9c', '#2ecc71', '#3498db', '#e74c3c', '#3b444b'];
 
@@ -41,6 +42,18 @@ var Paddle = {
 	}
 };
 
+class game{
+
+	constructor(){
+	const playerNameEl = document.querySelector('.player-name');
+    playerNameEl.textContent = this.getPlayerName();
+	}
+
+	getPlayerName() {
+		return localStorage.getItem('userName') ?? 'Mystery player';
+	  }
+}
+
 var Game = {
 	initialize: function () {
 		this.canvas = document.querySelector('canvas');
@@ -61,10 +74,53 @@ var Game = {
 		this.turn = this.paddle;
 		this.timer = this.round = 0;
 		this.color = '#7397d9';
+		const playerNameEl = document.querySelector('.player-name');
+    	playerNameEl.textContent = this.getPlayerName();
 
 		Pong.menu();
 		Pong.listen();
 	},
+	
+	saveScore: function (score) {
+		const userName = this.getPlayerName();
+		let scores = [];
+		const scoresText = localStorage.getItem('scores');
+		if (scoresText) {
+		  scores = JSON.parse(scoresText);
+		}
+		scores = this.updateScores(userName, score, scores);
+	
+		localStorage.setItem('scores', JSON.stringify(scores));
+	  },
+
+	  updateScores: function(userName, score, scores) {
+		const date = new Date().toLocaleDateString();
+		const newScore = { name: userName, score: score, date: date };
+	
+		let found = false;
+		for (const [i, prevScore] of scores.entries()) {
+		  if (score > prevScore.score) {
+			scores.splice(i, 0, newScore);
+			found = true;
+			break;
+		  }
+		}
+	
+		if (!found) {
+		  scores.push(newScore);
+		}
+	
+		if (scores.length > 10) {
+		  scores.length = 10;
+		}
+	
+		return scores;
+	  },
+	
+
+	getPlayerName: function () {
+		return localStorage.getItem('userName') ?? 'Mystery player';
+	  },
 
 	endGameMenu: function (text) {
 		// Change the canvas font size and color
@@ -188,9 +244,29 @@ var Game = {
 		}
 
 		// Handle the end of round transition
+		// Check to see if the player won the round.
+		 //(this.player.score === rounds[this.round]) {
+			// Check to see if there are any more rounds/levels left and display the victory screen if
+			// there are not.
+			//if (!rounds[this.round + 1]) {
+				//this.over = true;
+				//setTimeout(function () { Pong.endGameMenu('Winner!'); }, 1000);
+			//} else {
+				 //If there is another round, reset all the values and increment the round number.
+				//this.color = this._generateRoundColor();
+				//this.player.score = this.paddle.score = 0;
+				//this.player.speed += 0.5;
+				//this.paddle.speed += 1;
+				//this.ball.speed += 1;
+				//this.round += 1;
+
+				//beep3.play();
+			//}
+		//}
 		// Check to see if the paddle/AI has won the round.
-		if (this.paddle.score === this.player.score + 2 ) {
+		if (this.paddle.score === this.player.score + 2) {
 			this.over = true;
+			this.saveScore(this.player.score);
 			setTimeout(function () { Pong.endGameMenu('Game Over!'); }, 1000);
 		}
 	},
