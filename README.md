@@ -50,6 +50,8 @@ html elements denoted with a period followed by the details for the item
 display flex so that it changes based on device
 
 startup httml/css/javascript
+
+
 changed all the colors up  you can change the colors on specfic sections by using style="background-color:#344461;" or style="color:#344461;" depending on if its for text or the background for html or css its color: #3444461
 can change links specifically by adding a style section in the head with a:(link,visited,etc) { color: #344461}
 changed from an assignmeent tracker to a pong game since i couldnt find a good way too include all the elements in my previous idea ound a simple js pong gamee @ https://codepen.io/gdube/pen/JybxxZ and am modifying it for my use modifications include muteing noises, changing controls, colors, number of matchs, etc.
