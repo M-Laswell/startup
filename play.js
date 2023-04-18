@@ -188,27 +188,8 @@ var Game = {
 		}
 
 		// Handle the end of round transition
-		// Check to see if the player won the round.
-		if (this.player.score === rounds[this.round]) {
-			// Check to see if there are any more rounds/levels left and display the victory screen if
-			// there are not.
-			if (!rounds[this.round + 1]) {
-				this.over = true;
-				setTimeout(function () { Pong.endGameMenu('Winner!'); }, 1000);
-			} else {
-				// If there is another round, reset all the values and increment the round number.
-				this.color = this._generateRoundColor();
-				this.player.score = this.paddle.score = 0;
-				this.player.speed += 0.5;
-				this.paddle.speed += 1;
-				this.ball.speed += 1;
-				this.round += 1;
-
-				//beep3.play();
-			}
-		}
 		// Check to see if the paddle/AI has won the round.
-		else if (this.paddle.score === rounds[this.round]) {
+		if (this.paddle.score === this.player.score + 2 ) {
 			this.over = true;
 			setTimeout(function () { Pong.endGameMenu('Game Over!'); }, 1000);
 		}
