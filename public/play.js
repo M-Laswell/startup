@@ -85,23 +85,35 @@ var Game = {
 	
 	saveScore: function (score) {
 		const userName = this.getPlayerName();
+		const date = new Date().toLocaleDateString();
+		const newScore = { name: userName, score: score, date: date };
+	
+		try {
+		  const response = fetch('/api/score', {
+			method: 'POST',
+			headers: { 'content-type': 'application/json' },
+			body: JSON.stringify(newScore),
+		  });
+	
+		  // Store what the service gave us as the high scores
+		  const scores = response.json();
+		  localStorage.setItem('scores', JSON.stringify(scores));
+		} catch {
+		  // If there was an error then just track scores locally
+		  this.updateScoresLocal(newScore);
+		}
+	  },
+
+	  updateScoresLocal: function (newScore) {
 		let scores = [];
 		const scoresText = localStorage.getItem('scores');
 		if (scoresText) {
 		  scores = JSON.parse(scoresText);
 		}
-		scores = this.updateScores(userName, score, scores);
-	
-		localStorage.setItem('scores', JSON.stringify(scores));
-	  },
-
-	  updateScores: function(userName, score, scores) {
-		const date = new Date().toLocaleDateString();
-		const newScore = { name: userName, score: score, date: date };
 	
 		let found = false;
 		for (const [i, prevScore] of scores.entries()) {
-		  if (score > prevScore.score) {
+		  if (newScore > prevScore.score) {
 			scores.splice(i, 0, newScore);
 			found = true;
 			break;
@@ -116,8 +128,9 @@ var Game = {
 		  scores.length = 10;
 		}
 	
-		return scores;
+		localStorage.setItem('scores', JSON.stringify(scores));
 	  },
+	
 	
 
 	getPlayerName: function () {
