@@ -80,3 +80,14 @@ for mobile use its better to keep everything fluid and based off screen size rat
 can save items in browser local storage and pull them with their ids
 localStorage.setItem('scores', JSON.stringify(scores));
 localStorage.getItem('scores');
+
+startup service 
+
+hard to make sure mongo db is working correctly when using enviroment variables that part is worth testing to make sure you have messed anything up
+when pulling an api that gives an array of variables instead of just one use[random] with a random num generator to pull a random entry from the array 
+use bcrypt for an easy password hash solution for security on the db and uuid for tokens
+for eniro var use command sudo vi /etc/environment
+bootstrap good for styling 
+
+
+
